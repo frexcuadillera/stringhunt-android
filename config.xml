@@ -17,6 +17,7 @@
       Frex Cuadillera
   </author>
   
+  <preference name="EnableViewportScale" value="true" />
   <preference name="orientation" value="portrait" />
 
 </widget>
