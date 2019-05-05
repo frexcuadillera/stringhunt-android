@@ -27,8 +27,8 @@ body {
 #wrapper {
 
 	margin: 0 auto;
-	width: 412px; 
-	height: 732px;
+	width: 1080px; 
+	height: 1920px;
 	background-color: #ACFFFF;
 
 }
@@ -53,9 +53,9 @@ body {
 }
 
 .buttons{
+
 	display: flex;
 	flex-direction: column;
-	background: red;
 	align-items: center;
 
 }
