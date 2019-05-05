@@ -1,0 +1,16 @@
+body{
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+#wrapper {
+
+	margin: 0 auto;
+	width: 421px;
+	height: 751px;
+	background-color: #ACFFFF;
+
+}
+
+/* code here */

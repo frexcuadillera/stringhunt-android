@@ -1,0 +1,59 @@
+body{
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+#wrapper {
+
+	margin: 0 auto;
+	width: 421px;
+	height: 751px;
+	background-color: #ACFFFF;
+
+}
+
+/* code here */
+
+.description {
+
+	padding-top: 20px;
+	font-weight: bold;
+	font-family: Arial;
+	color: rgb(61, 133, 198);
+
+}
+
+.description-title {
+
+	font-size: 30px;
+
+}
+
+.description > * {
+
+	padding-bottom: 50px;
+	text-align: center;
+
+}
+
+.description-category,
+.description-content,
+.description-footer {
+
+	font-size: 20px;
+
+}
+
+.description-content {
+
+	padding-left: 20px;
+	padding-right: 20px;
+
+}
+
+.back {
+
+	text-align: center;
+	
+}
