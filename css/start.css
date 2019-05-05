@@ -1,4 +1,5 @@
 body{
+	
 	margin: 0;
 	display: flex;
 	flex-direction: column;
@@ -14,3 +15,91 @@ body{
 }
 
 /* code here */
+
+/* timer panel */
+
+.timer-panel {
+
+	padding: 25px 0;
+	text-align: center;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+/* scene panel */
+
+.scene-panel {
+
+	text-align: center;
+	padding-bottom: 20px;
+
+}
+
+.scene-panel > img {
+
+	width: 90%;
+	height: auto;
+
+}
+
+/* text panel */
+
+.text-panel {
+
+	display: flex;
+	vertical-align: center;
+	padding-bottom: 20px;
+
+}
+
+.text-panel > img {
+
+	padding-left: 40px;
+	padding-right: 20px;
+
+}
+
+.text-panel > input[type=text] {
+
+	padding: 10px;
+
+}
+
+/* letter panel */
+
+.letter-panel-rows {
+
+	display: flex;
+	justify-content: space-between;
+	margin: 0 20px;
+	margin-bottom: 20px;
+
+
+}
+
+.letter-panel-rows > input[type=button] {
+
+	padding: 10px 20px;
+	background-color: rgb(61, 133, 198);
+	color: white;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 20px;
+
+}
+
+/* button panel */
+
+.button-panel {
+
+	text-align: center;
+
+}
+
+.button-panel > img {
+
+	padding-bottom: 10px;
+
+}

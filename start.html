@@ -8,9 +8,77 @@
 <body>
 	
 	<div id="wrapper">
-		start
+		
+		<!-- TIMER PANEL -->
+		<div class="timer-panel">5:00</div>
+
+		<!-- SCENE PANEL -->
+		<div class="scene-panel">
+			<img src="assets/ui/scene.jpg">		
+		</div>
+
+		<!-- TEXT PANEL -->
+		<div class="text-panel">
+			<img src="assets/ui/btn_refresh.png" id="image1" onmousedown=diffImageDown(this) onmouseup=diffImageUp(this) />
+			<input type="text" name="text-field" />
+		</div>
+
+		<!-- LETTER PANEL -->
+		<div class="letter-panel">
+			<div class="letter-panel-rows">
+				<input onclick="change()" type="button" value="A" id=btn_0" />
+				<input onclick="change()" type="button" value="A" id=btn_1" />
+				<input onclick="change()" type="button" value="A" id=btn_2" />
+				<input onclick="change()" type="button" value="A" id=btn_3" />
+				<input onclick="change()" type="button" value="A" id=btn_4" />
+				<input onclick="change()" type="button" value="A" id=btn_5" />		
+			</div>
+			<div class="letter-panel-rows">			
+				<input onclick="change()" type="button" value="A" id=btn_6" />
+				<input onclick="change()" type="button" value="A" id=btn_7" />
+				<input onclick="change()" type="button" value="A" id=btn_8" />
+				<input onclick="change()" type="button" value="A" id=btn_9" />
+				<input onclick="change()" type="button" value="A" id=btn_10" />
+				<input onclick="change()" type="button" value="A" id=btn_11" />				
+			</div>
+			<div class="letter-panel-rows">			
+				<input onclick="change()" type="button" value="A" id=btn_12" />
+				<input onclick="change()" type="button" value="A" id=btn_13" />
+				<input onclick="change()" type="button" value="A" id=btn_14" />	
+				<input onclick="change()" type="button" value="A" id=btn_15" />
+				<input onclick="change()" type="button" value="A" id=btn_16" />
+				<input onclick="change()" type="button" value="A" id=btn_17" />				
+			</div>
+			<div class="letter-panel-rows">			
+				<input onclick="change()" type="button" value="A" id=btn_18" />
+				<input onclick="change()" type="button" value="A" id=btn_19" />	
+				<input onclick="change()" type="button" value="A" id=btn_20" />
+				<input onclick="change()" type="button" value="A" id=btn_21" />
+				<input onclick="change()" type="button" value="A" id=btn_22" />
+				<input onclick="change()" type="button" value="A" id=btn_23" />				
+			</div>
+			<div class="letter-panel-rows">
+				<input onclick="change()" type="button" value="A" id=btn_24" />	
+				<input onclick="change()" type="button" value="A" id=btn_25" />
+				<input onclick="change()" type="button" value="A" id=btn_26" />
+				<input onclick="change()" type="button" value="A" id=btn_27" />
+				<input onclick="change()" type="button" value="A" id=btn_28" />
+				<input onclick="change()" type="button" value="A" id=btn_29" />	
+			</div>			
+		</div>
+
+		<!-- BUTTON PANEL -->
+		<div class="button-panel">
+			<img src="assets/ui/button_attack_0.png"><br>
+			<img src="assets/ui/button_reset_0.png">
+			<img src="assets/ui/button_pause_0.png" onclick="pause()">
+		</div>
+
 	</div>
 
 </body>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/start.js"></script>
 
 </html>
