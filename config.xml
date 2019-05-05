@@ -16,7 +16,8 @@
   <author href="https://github.com/frexcuadillera" email="fcuadillera@gmail.com">
       Frex Cuadillera
   </author>
-  
+
+  <icon src="assets/ui/icon.png" />
   <preference name="fullscreen" value="true" />
   <preference name="orientation" value="portrait" />
 
