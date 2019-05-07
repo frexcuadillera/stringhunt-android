@@ -4,8 +4,21 @@
 		<title> Stringhunt </title>
 		<link rel="stylesheet" href="css/quit.css">
 	</head>
-	
-<body>
+
+<script type="text/javascript" charset="utf-8" src="cordova-2.0.0.js"></script>      
+<script type="text/javascript" charset="utf-8">
+
+    function onLoad(){
+        document.addEventListener("deviceready", onDeviceReady, true);
+    }
+
+    function exitFromApp(){
+        navigator.app.exitApp();
+    }
+
+</script>
+
+<body onload="onLoad();">
 	
 	<div id="wrapper">
 		
@@ -14,7 +27,7 @@
 		</div>
 		
 		<div class="buttons">			
-			<img src="assets/ui/button_yes_0.png" onclick="closeMeNow()">
+			<img src="assets/ui/button_yes_0.png" onclick="exitFromApp()">
 			<a href="index.html">
 				<img src="assets/ui/button_no_0.png">
 			</a>			
@@ -23,13 +36,6 @@
 	</div>
 
 </body>
-
-<script type="text/javascript">
-function closeMeNow() {
-    var win = window.open("","_self"); /* url = "" or "about:blank"; target="_self" */
-    win.close();
-}	
-</script>
 
 <iframe src="assets/sfx/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
 <audio id="player" autoplay loop>
