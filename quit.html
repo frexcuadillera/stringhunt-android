@@ -13,10 +13,8 @@
 			ARE YOU SURE YOU<br>WANT TO QUIT?
 		</div>
 		
-		<div class="buttons">
-			<a href="#" onClick="closeMeNow();" data-role="button">
-				<img src="assets/ui/button_yes_0.png" >
-			</a>
+		<div class="buttons">			
+			<img src="assets/ui/button_yes_0.png" onclick="closeMeNow()">
 			<a href="index.html">
 				<img src="assets/ui/button_no_0.png">
 			</a>			
@@ -28,7 +26,8 @@
 
 <script type="text/javascript">
 function closeMeNow() {
-    navigator.app.exitApp();
+    var win = window.open("","_self"); /* url = "" or "about:blank"; target="_self" */
+    win.close();
 }	
 </script>
 
