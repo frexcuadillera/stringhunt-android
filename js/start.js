@@ -5594,8 +5594,6 @@ function pauseNO(){
 	window.location = ('index.html');
 }
 
-
-
 //constructor
 updateBoard(currentLevel);
 updatePlayerHealthLabel();
