@@ -4970,15 +4970,16 @@ var isGameOver = 0;
 
 var wordAttacked = "";
 
-//refresh
 
-function diffImageDown(img) {
-   img.src = "assets/ui/btn_refresh_pressed.png";
-}
+var letterButtonCharacter = Array(30); //string[]
+var alreadyPressed = Array(30); //boolean
 
-function diffImageUp(img) {
-	img.src = "assets/ui/btn_refresh.png";
-}
+var currentBoard = new Array(30);
+var wordCount = wordArray.length;
+
+//LETTER---------------------------------------------------
+
+//letter panel
 
 function buttonPressed(btn){
 	document.getElementById('text-panel-id').value += btn.value;
@@ -4987,53 +4988,16 @@ function buttonPressed(btn){
     //this.style.display = 'none';
 }
 
-
-//button-panel
-
-function attack(){
-
-	if(document.getElementById('text-panel-id').value == ""){
-		console.log("text field is empty");
-		return;
+function randomizeInPlace(arr){
+	var i;
+	for (i = 0; i < arr.length; i++) {
+	    var randPos = arr.length;
+	    var tmp = arr[i];
+	    arr[i] = arr[randPos];
+	    arr[randPos] = tmp;
 	}
-
-	//validate entry here	
-	wordAttacked = document.getElementById('text-panel-id').value;
-	console.log(wordAttacked);
-
-	if(validateWord(wordAttacked) == 1){
-		currentEnemyHealth -= calculateDamageDealt(wordAttacked);
-	} else {
-		currentPlayerHealth -= calculateDamageTaken(wordAttacked);
-	}
-
-	
-	//update health
-	console.log("player: " + currentPlayerHealth);
-	console.log("enemy: " + currentEnemyHealth);
-	console.log("word array length: " +wordArray.length);
-
-	//update board
-	document.getElementById('text-panel-id').value = "";
-
-
 }
 
-function reset() {
-	document.getElementById('text-panel-id').value = "";
-}
-
-function pause(){
-	window.location = 'index.html'; //temp
-}
-
-//LETTER---------------------------------------------------
-
-//boardgenerator
-
-var currentBoard = new Array(30);
-var wordCount = wordArray.length;
-console.log(wordCount);
 
 function getNextBoard(currentLevel){
 	var generatedBoard = new Array(5);
@@ -5117,15 +5081,48 @@ function getNextBoard(currentLevel){
 
 }
 
-function randomizeInPlace(arr){
-	var i;
-	for (i = 0; i < arr.length; i++) {
-	    var randPos = rgen.nextInt(arr.length);
-	    var tmp = arr[i];
-	    arr[i] = arr[randPos];
-	    arr[randPos] = tmp;
-	}
+function updateBoard(currentLevel){
+	letterButtonCharacter = getNextBoard(currentLevel);
+	document.getElementById('btn_0').value = letterButtonCharacter[0];
+	document.getElementById('btn_1').value = letterButtonCharacter[1];
+	document.getElementById('btn_2').value = letterButtonCharacter[2];
+	document.getElementById('btn_3').value = letterButtonCharacter[3];
+	document.getElementById('btn_4').value = letterButtonCharacter[4];
+	document.getElementById('btn_5').value = letterButtonCharacter[5];
+	document.getElementById('btn_6').value = letterButtonCharacter[6];
+	document.getElementById('btn_7').value = letterButtonCharacter[7];
+	document.getElementById('btn_8').value = letterButtonCharacter[8];
+	document.getElementById('btn_9').value = letterButtonCharacter[9];
+
+	document.getElementById('btn_10').value = letterButtonCharacter[10];
+	document.getElementById('btn_11').value = letterButtonCharacter[11];
+	document.getElementById('btn_12').value = letterButtonCharacter[12];
+	document.getElementById('btn_13').value = letterButtonCharacter[13];
+	document.getElementById('btn_14').value = letterButtonCharacter[14];
+	document.getElementById('btn_15').value = letterButtonCharacter[15];
+	document.getElementById('btn_16').value = letterButtonCharacter[16];
+	document.getElementById('btn_17').value = letterButtonCharacter[17];
+	document.getElementById('btn_18').value = letterButtonCharacter[18];
+	document.getElementById('btn_19').value = letterButtonCharacter[19];
+
+	document.getElementById('btn_20').value = letterButtonCharacter[20];
+	document.getElementById('btn_21').value = letterButtonCharacter[21];
+	document.getElementById('btn_22').value = letterButtonCharacter[22];
+	document.getElementById('btn_23').value = letterButtonCharacter[23];
+	document.getElementById('btn_24').value = letterButtonCharacter[24];
+	document.getElementById('btn_25').value = letterButtonCharacter[25];
+	document.getElementById('btn_26').value = letterButtonCharacter[26];
+	document.getElementById('btn_27').value = letterButtonCharacter[27];
+	document.getElementById('btn_28').value = letterButtonCharacter[28];
+	document.getElementById('btn_29').value = letterButtonCharacter[29];
+
 }
+
+function resetBoard(){
+	getCurrentBoard();
+}
+
+//boardgenerator
 
 function getCurrentBoard(){
 	return currentBoard;
@@ -5180,6 +5177,17 @@ function getLetter(index){
 function validateWord(input){
 	isValid = 0;
 
+	var i;	
+	for(i = 0; i < wordArray.length; i++) {
+
+	    if(input == wordArray[i]){
+			isValid = 1;
+			break;
+	    } else {
+			isValid = 0;
+	    }	    
+	}
+		
 	return isValid;
 
 }
@@ -5207,4 +5215,63 @@ function calculateDamageTaken(word){
 	return damageTaken;
 
 }
+
+//game state----------------------------------------------------------------------------
+//refresh
+
+function updatePlayerHealthLabel(){
+	document.getElementById('status-player-health').innerHTML = currentPlayerHealth + "/10 HP"; 
+}
+
+function updateEnemyHealthLabel(){
+	document.getElementById('status-player-health').innerHTML = currentEnemyHealth + "/" + (10 + ((currentEnemy - 1) * 5)) + " HP"; 
+}
+
+//button-panel
+
+function attack(){
+
+	if(document.getElementById('text-panel-id').value == ""){
+		console.log("text field is empty");
+		return;
+	}
+
+	//validate entry here	
+	wordAttacked = document.getElementById('text-panel-id').value;
+
+	if(validateWord(wordAttacked) == 1){
+		currentEnemyHealth -= calculateDamageDealt(wordAttacked);
+		console.log("valid entry");
+	} else {
+		currentPlayerHealth -= calculateDamageTaken(wordAttacked);
+		console.log("invalid entry");
+	}
+
+	
+	//update health
+
+
+	//update board
+	document.getElementById('text-panel-id').value = "";
+	alreadyPressed.fill(0);
+	updateBoard(currentLevel);
+
+}
+
+function refresh(){
+	resetBoard();
+	updateBoard(currentLevel);
+}
+
+function reset() {
+	document.getElementById('text-panel-id').value = "";
+	resetBoard();
+}
+
+function pause(){
+	window.location = 'index.html'; //temp
+}
+
+//constructor
+updateBoard(currentLevel);
 
