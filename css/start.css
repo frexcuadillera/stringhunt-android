@@ -64,9 +64,30 @@ body{
 
 }
 
-.scene-panel > img {
+#scene-panel-bg {
 
 	width: 90%;
+	height: auto;
+	position: relative;
+
+}
+
+#scene-panel-player {
+
+	position: absolute;
+    top: 95px;
+    left: 710px;
+	width: 5%;
+	height: auto;
+
+}
+
+#scene-panel-enemy {
+
+	position: absolute;
+    top: 90px;
+    left: 920px;
+	width: 5%;
 	height: auto;
 
 }

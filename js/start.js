@@ -4958,10 +4958,10 @@ var wordArray = [
 
 //global variables
 
-var currentPlayerHealth = 10;
-var currentEnemyHealth = 10;
 var currentEnemy = 1; //1
 var currentLevel = 1; //1
+var currentPlayerHealth = 10;
+var currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
 var currentTime = 300 + ( 180 * (currentLevel - 1)); //300
 var timeElapsed = 0;
 
@@ -4970,18 +4970,20 @@ var isGameOver = 0;
 
 var wordAttacked = "";
 
-
 var letterButtonCharacter = Array(30); //string[]
 var alreadyPressed = Array(30); //boolean
 
 var currentBoard = new Array(30);
 var wordCount = wordArray.length;
 
+var currentLevelLabel = "1st Year";
+var currentEnemyLabel = ": Enemy 1";
+
 //TIMER ---------------------------------------------------
 
-var interval = setInterval(tick, 1000);
+var interval = setInterval(timer, 1000); //clock
 
-function tick(){
+function timer(){
 	currentTime--;
 	timeElapsed++;
 	updateTimeLabel();
@@ -4991,6 +4993,82 @@ function tick(){
 	}
 
 }
+
+var tickInterval = setInterval(tick, 16); //60fps
+
+function tick(){
+
+	if(currentLevel == 1) {
+	    currentLevelLabel = "1st Year";
+	} else if (currentLevel == 2) {
+	    currentLevelLabel = "2nd Year";
+	} else if (currentLevel == 3) {
+	    currentLevelLabel = "3rd Year";
+	} else if (currentLevel == 4) {
+	    currentLevelLabel = "4th Year";
+	} else if (currentLevel == 5) {
+	    currentLevelLabel = "5th Year";
+	}
+		
+	if(currentEnemy == 1) {
+	    currentEnemyLabel = ": Enemy 1";
+	} else if (currentEnemy == 2) {
+	    currentEnemyLabel = ": Enemy 2";
+	} else if (currentEnemy == 3) {
+	    currentEnemyLabel = ": Enemy 3";
+	} else if (currentEnemy == 4) {
+	    currentEnemyLabel = ": Enemy 4";
+	} else if (currentEnemy == 5) {
+	    currentEnemyLabel = ": BOSS";
+	}
+
+	document.getElementById('level-panel').innerHTML = currentLevelLabel + currentEnemyLabel;
+
+}
+
+var animationInterval = setInterval(animation, 500);
+
+function animation(){
+
+	//console.log(document.getElementById('scene-panel-player').getAttribute('src'));
+
+	if(document.getElementById('scene-panel-player').getAttribute('src') == "assets/characters/player_0.png"){
+		document.getElementById('scene-panel-player').src = "assets/characters/player_1.png";
+	} else {
+		document.getElementById('scene-panel-player').src = "assets/characters/player_0.png";
+	}
+
+	//if(document.getElementById('scene-panel-player').getAttribute "../assets/characters/player_1.png")
+	//document.getElementById('scene-panel-player').src = "../assets/characters/player_1.png";
+
+	if(currentLevel == 1) {
+	   
+	} else if (currentLevel == 2) {
+	   
+	} else if (currentLevel == 3) {
+	    
+	} else if (currentLevel == 4) {
+	  
+	} else if (currentLevel == 5) {
+	  
+	}
+		
+	if(currentEnemy == 1) {
+	  
+	} else if (currentEnemy == 2) {
+	   
+	} else if (currentEnemy == 3) {
+	  
+	} else if (currentEnemy == 4) {
+	   
+	} else if (currentEnemy == 5) {
+	    
+	}
+
+}
+
+
+
 
 //LETTER---------------------------------------------------
 
@@ -5426,6 +5504,7 @@ updateBoard(currentLevel);
 updatePlayerHealthLabel();
 updateEnemyHealthLabel();
 updateTimeLabel();
+document.getElementById('level-panel').innerHTML = currentLevelLabel + currentEnemyLabel;
 
 
 
