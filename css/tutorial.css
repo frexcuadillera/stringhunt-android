@@ -15,6 +15,30 @@ body{
 
 /* code here */
 
+.arrow {
+
+	display: flex;
+	padding-bottom: 20px;
+	justify-content: space-between;
+
+}
+
+.arrow-left{
+
+	padding-left: 120px;
+	height: 50px;
+	width: 50px;
+
+}
+
+.arrow-right {
+
+	padding-right: 120px;
+	height: 50px;
+	width: 50px;
+
+}
+
 .back {
 
 	text-align: center;

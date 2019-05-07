@@ -10,7 +10,12 @@
 	<div id="wrapper">
 		
 		<div class="tutorial">
-			tutorial
+			<img id="tutorial-panel" src="assets/tutorial/1.jpg">
+		</div>
+
+		<div class="arrow">
+			<img id="arrow-left-id" class="arrow-left" src="assets/tutorial/left.png" onclick="left()">
+			<img id="arrow-right-id" class="arrow-right" src="assets/tutorial/right.png" onclick="right()">
 		</div>
 
 		<div class="back">
@@ -22,6 +27,8 @@
 	</div>
 
 </body>
+
+<script type="text/javascript" src="js/tutorial.js"></script>
 
 <iframe src="assets/sfx/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
 <audio id="player" autoplay loop>
