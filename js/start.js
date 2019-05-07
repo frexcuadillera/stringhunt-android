@@ -4959,6 +4959,7 @@ var wordArray = [
 //sounds
 
 var clickSound = new Audio('assets/sfx/click.wav');
+var enemyDeathSound = new Audio('assets/sfx/enemyDeath.mp3');
 
 function playSound(clipIn) {
 	var clip = clipIn.cloneNode();
@@ -5513,6 +5514,7 @@ function attack(){
     }
 	    
     if(currentEnemyHealth <= 0) {
+    	playSound(enemyDeathSound);
 		
 		currentEnemy++;
 				
