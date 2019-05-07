@@ -1,7 +1,9 @@
 body{
+
 	margin: 0;
 	display: flex;
 	flex-direction: column;
+	
 }
 
 #wrapper {
@@ -20,13 +22,13 @@ body{
 	align-items: center;
 	padding: 50px 0;
 
-
 }
 
 .title > img {
 
 	max-width: 90%;
 	height: auto;
+
 }
 
 .buttons{

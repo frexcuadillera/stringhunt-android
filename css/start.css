@@ -119,14 +119,15 @@ body{
 	display: flex;
 	justify-content: space-between;
 	margin: 0 20px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 
 
 }
 
 .letter-panel-rows > input[type=button] {
 
-	padding: 10px 20px;
+	height: 55px;
+	width: 55px;
 	background-color: rgb(61, 133, 198);
 	color: white;
 	font-weight: bold;

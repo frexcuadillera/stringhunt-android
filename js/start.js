@@ -4956,6 +4956,15 @@ var wordArray = [
 
 ];
 
+//sounds
+
+var clickSound = new Audio('assets/sfx/click.wav');
+
+function playSound(clipIn) {
+	var clip = clipIn.cloneNode();
+	clip.play();
+}
+
 //global variables
 
 var currentEnemy = 1; //1
@@ -5138,6 +5147,7 @@ function getFrameAnimate(ID){
 //letter panel
 
 function buttonPressed(btn){
+	playSound(clickSound);
 	document.getElementById('text-panel-id').value += btn.value;
     document.getElementById(btn.id).style.visibility = "hidden";
 }
@@ -5465,6 +5475,7 @@ function updateTimeLabel(){
 //button-panel
 
 function attack(){
+	playSound(clickSound);
 
 	if(document.getElementById('text-panel-id').value == ""){
 		console.log("text field is empty");
@@ -5540,6 +5551,7 @@ function attack(){
 //refresh button
 
 function refresh(){
+	playSound(clickSound);
 	document.getElementById('text-panel-id').value = "";
 	resetBoard();
 	updateBoard(currentLevel);
@@ -5548,6 +5560,7 @@ function refresh(){
 //reset button
 
 function reset() {
+	playSound(clickSound);
 	document.getElementById('text-panel-id').value = "";
 	resetBoard();
 }
@@ -5571,6 +5584,7 @@ var pausedTime = 0;
 var pausedWordAttacked = "";
 
 function pause(){
+	playSound(clickSound);
 	pausedState = document.getElementById('wrapper').innerHTML;
 	pausedWordAttacked = document.getElementById('text-panel-id').value;
 	pausedTime = currentTime;
