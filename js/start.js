@@ -5032,11 +5032,11 @@ function animation(){
 
 	//console.log(document.getElementById('scene-panel-player').getAttribute('src'));
 
-	if(document.getElementById('scene-panel-player').getAttribute('src') == "assets/characters/player_0.png"){
-		document.getElementById('scene-panel-player').src = "assets/characters/player_1.png";
-	} else {
-		document.getElementById('scene-panel-player').src = "assets/characters/player_0.png";
-	}
+	// if(document.getElementById('scene-panel-player').getAttribute('src') == "assets/characters/player_0.png"){
+	// 	document.getElementById('scene-panel-player').src = "assets/characters/player_1.png";
+	// } else {
+	// 	document.getElementById('scene-panel-player').src = "assets/characters/player_0.png";
+	// }
 
 	//if(document.getElementById('scene-panel-player').getAttribute "../assets/characters/player_1.png")
 	//document.getElementById('scene-panel-player').src = "../assets/characters/player_1.png";
