@@ -5026,9 +5026,9 @@ function tick(){
 
 }
 
-var animationInterval = setInterval(animation, 500);
+var playerAnimationInterval = setInterval(playerAnimation, 500);
 
-function animation(){
+function playerAnimation(){
 
 	if(document.getElementById('scene-panel-player').getAttribute('src') == "assets/characters/player_0.png"){
 		document.getElementById('scene-panel-player').src = "assets/characters/player_1.png";
@@ -5036,78 +5036,6 @@ function animation(){
 		document.getElementById('scene-panel-player').src = "assets/characters/player_0.png";
 	}
 
-	if(currentLevel == 1) {
-
-		if(currentEnemy == 1) {
-	  
-		} else if (currentEnemy == 2) {
-		   
-		} else if (currentEnemy == 3) {
-		  
-		} else if (currentEnemy == 4) {
-		   
-		} else if (currentEnemy == 5) {
-		    
-		}
-
-	} else if (currentLevel == 2) {
-
-		if(currentEnemy == 1) {
-	  
-		} else if (currentEnemy == 2) {
-		   
-		} else if (currentEnemy == 3) {
-		  
-		} else if (currentEnemy == 4) {
-		   
-		} else if (currentEnemy == 5) {
-		    
-		}	   
-
-	} else if (currentLevel == 3) {
-
-		if(currentEnemy == 1) {
-	  
-		} else if (currentEnemy == 2) {
-		   
-		} else if (currentEnemy == 3) {
-		  
-		} else if (currentEnemy == 4) {
-		   
-		} else if (currentEnemy == 5) {
-		    
-		}	
-
-	} else if (currentLevel == 4) {
-
-		if(currentEnemy == 1) {
-	  
-		} else if (currentEnemy == 2) {
-		   
-		} else if (currentEnemy == 3) {
-		  
-		} else if (currentEnemy == 4) {
-		   
-		} else if (currentEnemy == 5) {
-		    
-		}
-
-	} else if (currentLevel == 5) {
-
-		if(currentEnemy == 1) {
-	  
-		} else if (currentEnemy == 2) {
-		   
-		} else if (currentEnemy == 3) {
-		  
-		} else if (currentEnemy == 4) {
-		   
-		} else if (currentEnemy == 5) {
-		    
-		}	
-
-	}
-		
 }
 
 //LETTER---------------------------------------------------
@@ -5545,8 +5473,3 @@ updatePlayerHealthLabel();
 updateEnemyHealthLabel();
 updateTimeLabel();
 document.getElementById('level-panel').innerHTML = currentLevelLabel + currentEnemyLabel;
-
-
-
-
-

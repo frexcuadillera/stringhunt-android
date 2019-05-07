@@ -3,3 +3,4 @@ game over event
 pause event
 win event
 tutorial
+sounds
