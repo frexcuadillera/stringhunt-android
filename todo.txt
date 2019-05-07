@@ -3,14 +3,4 @@ tutorial
 image cardlayout
 
 
-
-sounds
-	
-main menu sound
-
-button sounds
-	
-game bg sound loop
-
-
 quit the app plugin
