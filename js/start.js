@@ -4960,9 +4960,9 @@ var wordArray = [
 
 var currentPlayerHealth = 10;
 var currentEnemyHealth = 10;
-var currentEnemy = 1;
-var currentLevel = 1;
-var currentTime = 300;
+var currentEnemy = 1; //1
+var currentLevel = 1; //1
+var currentTime = 300; //300
 var timeElapsed = 0;
 
 var isPaused = 0;
@@ -4976,6 +4976,10 @@ var alreadyPressed = Array(30); //boolean
 
 var currentBoard = new Array(30);
 var wordCount = wordArray.length;
+
+//TIMER ---------------------------------------------------
+
+
 
 //LETTER---------------------------------------------------
 
@@ -5293,7 +5297,7 @@ function calculateDamageTaken(word){
 }
 
 //game state----------------------------------------------------------------------------
-//refresh
+//updates
 
 function updatePlayerHealthLabel(){
 	document.getElementById('status-panel-player-health').innerHTML = currentPlayerHealth + "/10 HP"; 
@@ -5301,6 +5305,10 @@ function updatePlayerHealthLabel(){
 
 function updateEnemyHealthLabel(){
 	document.getElementById('status-panel-enemy-health').innerHTML = currentEnemyHealth + "/" + (10 + ((currentEnemy - 1) * 5)) + " HP"; 
+}
+
+function updateTimeLabel(){
+	document.getElementById('status-panel-timer').innerHTML = Math.floor(currentTime / 60) + ":" + (currentTime - Math.floor(currentTime / 60) * 60);
 }
 
 //button-panel
@@ -5363,7 +5371,7 @@ function attack(){
 				
 		//reset timer
 		currentTime = 300 + ( 180 * (currentLevel - 1));
-		document.getElementById('status-panel-timer').innerHTML = (currentTime/60) + ":" + (currentTime%60);
+		updateTimeLabel();
 
 		//move to the next enemy
 		//reset enemy health
@@ -5376,20 +5384,28 @@ function attack(){
 
 }
 
+//refresh button
+
 function refresh(){
 	document.getElementById('text-panel-id').value = "";
 	resetBoard();
 	updateBoard(currentLevel);
 }
 
+//reset button
+
 function reset() {
 	document.getElementById('text-panel-id').value = "";
 	resetBoard();
 }
 
+//game over event
+
 function gameOver(){
 
 }
+
+//pause event
 
 function pause(){
 	window.location = 'index.html'; //temp
@@ -5397,4 +5413,11 @@ function pause(){
 
 //constructor
 updateBoard(currentLevel);
+updatePlayerHealthLabel();
+updateEnemyHealthLabel();
+updateTimeLabel();
+
+
+
+
 

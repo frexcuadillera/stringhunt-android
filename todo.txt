@@ -1,0 +1,7 @@
+fix timer
+player and enemy on scene
+random letter bug
+game over event
+pause event
+win event
+tutorial
