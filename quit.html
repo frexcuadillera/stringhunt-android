@@ -14,8 +14,8 @@
 		</div>
 		
 		<div class="buttons">
-			<a href="index.html">
-				<img src="assets/ui/button_yes_0.png">
+			<a href="#">
+				<img src="assets/ui/button_yes_0.png" >
 			</a>
 			<a href="index.html">
 				<img src="assets/ui/button_no_0.png">
@@ -25,5 +25,18 @@
 	</div>
 
 </body>
+
+<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+   function onLoad()
+    {
+          document.addEventListener("deviceready", onDeviceReady, true);
+    }
+
+    function exitFromApp()
+     {
+        navigator.app.exitApp();
+     }	
+</script>
 
 </html>
