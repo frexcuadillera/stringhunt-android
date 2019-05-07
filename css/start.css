@@ -16,13 +16,26 @@ body{
 
 /* code here */
 
+/* level panel */
+
+#level-panel {
+
+	display: flex;
+	justify-content: center;
+	font-family: Arial;
+	font-weight: bold;
+	padding: 10px 0;
+	font-size: 20px;
+
+}
+
 /* status panel */
 
 .status-panel {
 
 	display: flex;
 	justify-content: center;
-	padding: 20px 0;
+	padding: 10px 0;
 
 }
 

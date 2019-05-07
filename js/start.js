@@ -4962,7 +4962,7 @@ var currentPlayerHealth = 10;
 var currentEnemyHealth = 10;
 var currentEnemy = 1; //1
 var currentLevel = 1; //1
-var currentTime = 300; //300
+var currentTime = 300 + ( 180 * (currentLevel - 1)); //300
 var timeElapsed = 0;
 
 var isPaused = 0;
@@ -4979,7 +4979,18 @@ var wordCount = wordArray.length;
 
 //TIMER ---------------------------------------------------
 
+var interval = setInterval(tick, 1000);
 
+function tick(){
+	currentTime--;
+	timeElapsed++;
+	updateTimeLabel();
+
+	if(currentTime <= 0){
+		window.location = 'gameOver.html';
+	}
+
+}
 
 //LETTER---------------------------------------------------
 
@@ -4991,22 +5002,22 @@ function buttonPressed(btn){
 }
 
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+	// Pick a remaining element...
+	randomIndex = Math.floor(Math.random() * currentIndex);
+	currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
+	// And swap it with the current element.
+	temporaryValue = array[currentIndex];
+	array[currentIndex] = array[randomIndex];
+	array[randomIndex] = temporaryValue;
+	}
 
-  return array;
+	return array;
 }
 
 
@@ -5019,11 +5030,6 @@ function getNextBoard(currentLevel){
 		var word32 = wordArray[Math.floor(Math.random() * wordCount)];
 		var word33 = wordArray[Math.floor(Math.random() * wordCount)];
 
-		console.log("word in board:");
-		console.log(word31);
-		console.log(word32);
-		console.log(word33);
-
 		while((word31.length + word32.length + word33.length) > 30){
 			word31 = wordArray[Math.floor(Math.random() * wordCount)];
 			word32 = wordArray[Math.floor(Math.random() * wordCount)];
@@ -5031,6 +5037,10 @@ function getNextBoard(currentLevel){
 		}
 
 		console.log("length of word" + (word31.length + word32.length + word33.length));
+		console.log("word in board:");
+		console.log(word31);
+		console.log(word32);
+		console.log(word33);
 	
 		for(i = 0; i < word31.length; i++) {
 			generatedBoard[i] = word31.substring(i, i+1);
@@ -5086,7 +5096,7 @@ function getNextBoard(currentLevel){
 	    }
 	}
 
-	generatedBoard = shuffle(generatedBoard);
+	//generatedBoard = shuffle(generatedBoard);
 	currentBoard = generatedBoard;
 	return generatedBoard;
 
@@ -5127,7 +5137,7 @@ function updateBoard(currentLevel){
 	document.getElementById('btn_28').value = letterButtonCharacter[28];
 	document.getElementById('btn_29').value = letterButtonCharacter[29];
 
-		document.getElementById('btn_0').style.visibility = "visible";
+	document.getElementById('btn_0').style.visibility = "visible";
 	document.getElementById('btn_1').style.visibility = "visible";
 	document.getElementById('btn_2').style.visibility = "visible";
 	document.getElementById('btn_3').style.visibility = "visible";
@@ -5402,7 +5412,7 @@ function reset() {
 //game over event
 
 function gameOver(){
-
+	window.location = ('gameOver.html');
 }
 
 //pause event
