@@ -148,3 +148,27 @@ body{
 	padding-bottom: 10px;
 
 }
+
+/* pause panel */
+
+.pause-panel-content {
+
+	color: #3d85C6;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 35px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding-top: 200px;
+	align-items: center;
+
+}
+
+.pause-panel-content > img {
+
+	width: 200px;
+	height: 50px;
+	padding-top: 20px;
+
+}

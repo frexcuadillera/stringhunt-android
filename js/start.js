@@ -5516,7 +5516,7 @@ function attack(){
 		    //game over, you win!
 		    //do win event here
 		    document.getElementById('status-panel-enemy-health').innerHTML = "0/10 HP";
-		    gameOver();
+		    win();
 		}
 				
 		//reset timer
@@ -5552,6 +5552,12 @@ function reset() {
 	resetBoard();
 }
 
+//win
+
+function win(){
+	window.location = ('win.html');
+}
+
 //game over event
 
 function gameOver(){
@@ -5560,9 +5566,35 @@ function gameOver(){
 
 //pause event
 
+var pausedState = "";
+var pausedTime = 0;
+var pausedWordAttacked = "";
+
 function pause(){
-	window.location = 'index.html'; //temp
+	pausedState = document.getElementById('wrapper').innerHTML;
+	pausedWordAttacked = document.getElementById('text-panel-id').value;
+	pausedTime = currentTime;
+
+	document.getElementById('wrapper').innerHTML = 
+	"<div class='pause-panel-content'><span>PAUSED<br>RESUME GAME?</span>" +
+	"<img src='assets/ui/button_yes_0.png' onclick='pauseYES()'>" +
+	"<img src='assets/ui/button_no_0.png' onclick='pauseNO()'>" +
+	"</div>";
+
 }
+
+function pauseYES(){
+	document.getElementById('wrapper').innerHTML = pausedState;
+	document.getElementById('text-panel-id').value = pausedWordAttacked;
+	currentTime = pausedTime;
+	updateTimeLabel();
+}
+
+function pauseNO(){
+	window.location = ('index.html');
+}
+
+
 
 //constructor
 updateBoard(currentLevel);

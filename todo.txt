@@ -7,30 +7,10 @@ image cardlayout
 sounds
 	
 main menu sound
-	
+
 button sounds
 	
 game bg sound loop
-
-
-
-win event
-	
-create html win landing page
-	
-replay question
-	
-yes -> restart the game
-	
-no -> go to main screen
-
-
-
-pause event
-	
-create html landing page
-	
-pause the timer
 
 
 quit the app plugin
