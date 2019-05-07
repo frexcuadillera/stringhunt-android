@@ -4960,6 +4960,9 @@ var wordArray = [
 
 var clickSound = new Audio('assets/sfx/click.wav');
 var enemyDeathSound = new Audio('assets/sfx/enemyDeath.mp3');
+var wordValid = new Audio('assets/sfx/wordValid.wav');
+var wordInvalid = new Audio('assets/sfx/wordInvalid.wav');
+
 
 function playSound(clipIn) {
 	var clip = clipIn.cloneNode();
@@ -5476,9 +5479,9 @@ function updateTimeLabel(){
 //button-panel
 
 function attack(){
-	playSound(clickSound);
 
 	if(document.getElementById('text-panel-id').value == ""){
+		playSound(clickSound);
 		console.log("text field is empty");
 		return;
 	}
@@ -5488,10 +5491,10 @@ function attack(){
 
 	if(validateWord(wordAttacked) == 1){
 		currentEnemyHealth -= calculateDamageDealt(wordAttacked);
-		console.log("valid entry");
+		playSound(wordValid);
 	} else {
 		currentPlayerHealth -= calculateDamageTaken(wordAttacked);
-		console.log("invalid entry");
+		playSound(wordInvalid);
 	}
 
 	
