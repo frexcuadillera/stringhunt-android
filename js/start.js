@@ -4983,19 +4983,26 @@ var wordCount = wordArray.length;
 
 function buttonPressed(btn){
 	document.getElementById('text-panel-id').value += btn.value;
-
-    //document.getElementById(btn.id).style.display = 'block'; 
-    //this.style.display = 'none';
+    document.getElementById(btn.id).style.visibility = "hidden";
 }
 
-function randomizeInPlace(arr){
-	var i;
-	for (i = 0; i < arr.length; i++) {
-	    var randPos = arr.length;
-	    var tmp = arr[i];
-	    arr[i] = arr[randPos];
-	    arr[randPos] = tmp;
-	}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }
 
 
@@ -5075,7 +5082,7 @@ function getNextBoard(currentLevel){
 	    }
 	}
 
-	//randomizeInPlace(generatedBoard);
+	generatedBoard = shuffle(generatedBoard);
 	currentBoard = generatedBoard;
 	return generatedBoard;
 
@@ -5120,6 +5127,41 @@ function updateBoard(currentLevel){
 
 function resetBoard(){
 	getCurrentBoard();
+	alreadyPressed.fill(0);
+
+	document.getElementById('btn_0').style.visibility = "visible";
+	document.getElementById('btn_1').style.visibility = "visible";
+	document.getElementById('btn_2').style.visibility = "visible";
+	document.getElementById('btn_3').style.visibility = "visible";
+	document.getElementById('btn_4').style.visibility = "visible";
+	document.getElementById('btn_5').style.visibility = "visible";
+	document.getElementById('btn_6').style.visibility = "visible";
+	document.getElementById('btn_7').style.visibility = "visible";
+	document.getElementById('btn_8').style.visibility = "visible";
+	document.getElementById('btn_9').style.visibility = "visible";
+
+	document.getElementById('btn_10').style.visibility = "visible";
+	document.getElementById('btn_11').style.visibility = "visible";
+	document.getElementById('btn_12').style.visibility = "visible";
+	document.getElementById('btn_13').style.visibility = "visible";
+	document.getElementById('btn_14').style.visibility = "visible";
+	document.getElementById('btn_15').style.visibility = "visible";
+	document.getElementById('btn_16').style.visibility = "visible";
+	document.getElementById('btn_17').style.visibility = "visible";
+	document.getElementById('btn_18').style.visibility = "visible";
+	document.getElementById('btn_19').style.visibility = "visible";
+
+	document.getElementById('btn_20').style.visibility = "visible";
+	document.getElementById('btn_21').style.visibility = "visible";
+	document.getElementById('btn_22').style.visibility = "visible";
+	document.getElementById('btn_23').style.visibility = "visible";
+	document.getElementById('btn_24').style.visibility = "visible";
+	document.getElementById('btn_25').style.visibility = "visible";
+	document.getElementById('btn_26').style.visibility = "visible";
+	document.getElementById('btn_27').style.visibility = "visible";
+	document.getElementById('btn_28').style.visibility = "visible";
+	document.getElementById('btn_29').style.visibility = "visible";
+
 }
 
 //boardgenerator
@@ -5220,11 +5262,11 @@ function calculateDamageTaken(word){
 //refresh
 
 function updatePlayerHealthLabel(){
-	document.getElementById('status-player-health').innerHTML = currentPlayerHealth + "/10 HP"; 
+	document.getElementById('status-panel-player-health').innerHTML = currentPlayerHealth + "/10 HP"; 
 }
 
 function updateEnemyHealthLabel(){
-	document.getElementById('status-player-health').innerHTML = currentEnemyHealth + "/" + (10 + ((currentEnemy - 1) * 5)) + " HP"; 
+	document.getElementById('status-panel-enemy-health').innerHTML = currentEnemyHealth + "/" + (10 + ((currentEnemy - 1) * 5)) + " HP"; 
 }
 
 //button-panel
@@ -5249,7 +5291,8 @@ function attack(){
 
 	
 	//update health
-
+	updatePlayerHealthLabel();
+	updateEnemyHealthLabel();
 
 	//update board
 	document.getElementById('text-panel-id').value = "";
@@ -5259,6 +5302,7 @@ function attack(){
 }
 
 function refresh(){
+	document.getElementById('text-panel-id').value = "";
 	resetBoard();
 	updateBoard(currentLevel);
 }

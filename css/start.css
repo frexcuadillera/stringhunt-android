@@ -26,9 +26,9 @@ body{
 
 }
 
-.status-panel-player-health,
-.status-panel-timer,
-.status-panel-enemy-health {
+#status-panel-player-health,
+#status-panel-timer,
+#status-panel-enemy-health {
 
 	text-align: center;
 	font-family: Arial;
@@ -37,8 +37,8 @@ body{
 
 }
 
-.status-panel-player-health,
-.status-panel-timer {
+#status-panel-player-health,
+#status-panel-timer {
 	padding-right: 40px;
 }
 
