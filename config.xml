@@ -20,6 +20,5 @@
   <icon src="assets/ui/icon.png" />
   <preference name="fullscreen" value="true" />
   <preference name="orientation" value="portrait" />
-  <plugin name="App" value="com.phonegap.App"/>
 
 </widget>
