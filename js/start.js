@@ -5056,7 +5056,7 @@ function playerAnimation(){
 			getFrame(15);
 			break;	
 		case 21:
-			getFrame(21);
+			getFrameAnimate(21);
 			break;
 		case 22:
 			getFrame(22);
@@ -5068,7 +5068,7 @@ function playerAnimation(){
 			getFrame(44);
 			break;
 		case 25:
-			etFrame(25);
+			getFrame(25);
 			break;
 		case 31:
 			getFrame(22);
@@ -5083,7 +5083,7 @@ function playerAnimation(){
 			getFrame(34);
 			break;
 		case 35:
-			etFrame(35);
+			getFrame(35);
 			break;
 		case 41:
 			getFrame(41);
