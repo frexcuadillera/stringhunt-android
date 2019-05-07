@@ -5036,6 +5036,101 @@ function playerAnimation(){
 		document.getElementById('scene-panel-player').src = "assets/characters/player_0.png";
 	}
 
+
+	enemyID = (currentLevel * 10) + currentEnemy;
+
+	switch(enemyID){
+		case 11:
+			getFrameAnimate(11);
+			break;
+		case 12:
+			getFrameAnimate(12);
+			break;
+		case 13:
+			getFrameAnimate(13);
+			break;
+		case 14:
+			getFrameAnimate(14);
+			break;
+		case 15:
+			getFrame(15);
+			break;	
+		case 21:
+			getFrame(21);
+			break;
+		case 22:
+			getFrame(22);
+			break;
+		case 23:
+			getFrame(23);
+			break;
+		case 24:
+			getFrame(44);
+			break;
+		case 25:
+			etFrame(25);
+			break;
+		case 31:
+			getFrame(22);
+			break;
+		case 32:
+			getFrame(32);
+			break;
+		case 33:
+			getFrame(33);
+			break;
+		case 34:
+			getFrame(34);
+			break;
+		case 35:
+			etFrame(35);
+			break;
+		case 41:
+			getFrame(41);
+			break;
+		case 42:
+			getFrame(42);
+			break;
+		case 43:
+			getFrame(43);
+			break;
+		case 44:
+			getFrame(44);
+			break;
+		case 45:
+			getFrame(45);
+			break;	
+		case 51:
+			getFrame(15);
+			break;
+		case 52:
+			getFrame(25);
+			break;
+		case 53:
+			getFrame(35);
+			break;
+		case 54:
+			getFrame(45);
+			break;
+		case 55:
+			getFrame(55);
+			break;														
+		default:
+			break;
+	}
+
+}
+
+function getFrame(ID){
+	document.getElementById('scene-panel-enemy').src = "assets/characters/" + ID + ".png";
+}
+
+function getFrameAnimate(ID){
+	if(document.getElementById('scene-panel-enemy').getAttribute('src') == "assets/characters/" + ID + "_0.png"){
+		document.getElementById('scene-panel-enemy').src = "assets/characters/" + ID + "_1.png";
+	} else {
+		document.getElementById('scene-panel-enemy').src = "assets/characters/" + ID + "_0.png";
+	}	
 }
 
 //LETTER---------------------------------------------------
@@ -5397,7 +5492,6 @@ function attack(){
 	alreadyPressed.fill(0);
 	updateBoard(currentLevel);
 
-
 	//health calculator and enemy switching
     if(currentPlayerHealth <= 0) {
 
@@ -5430,12 +5524,15 @@ function attack(){
 		updateTimeLabel();
 
 		//move to the next enemy
+		document.getElementById('scene-panel-enemy').src = "assets/characters/" + ((currentLevel * 10) + currentEnemy) + "_0.png";
+
 		//reset enemy health
 				
 		currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
 			
 		updatePlayerHealthLabel();
 		updateEnemyHealthLabel();
+
     }
 
 }
