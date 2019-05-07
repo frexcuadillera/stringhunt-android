@@ -16,16 +16,30 @@ body{
 
 /* code here */
 
-/* timer panel */
+/* status panel */
 
-.timer-panel {
+.status-panel {
 
-	padding: 25px 0;
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+
+}
+
+.status-panel-player-health,
+.status-panel-timer,
+.status-panel-enemy-health {
+
 	text-align: center;
 	font-family: Arial;
 	font-weight: bold;
 	font-size: 20px;
 
+}
+
+.status-panel-player-health,
+.status-panel-timer {
+	padding-right: 40px;
 }
 
 /* scene panel */
