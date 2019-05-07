@@ -5123,6 +5123,40 @@ function updateBoard(currentLevel){
 	document.getElementById('btn_28').value = letterButtonCharacter[28];
 	document.getElementById('btn_29').value = letterButtonCharacter[29];
 
+		document.getElementById('btn_0').style.visibility = "visible";
+	document.getElementById('btn_1').style.visibility = "visible";
+	document.getElementById('btn_2').style.visibility = "visible";
+	document.getElementById('btn_3').style.visibility = "visible";
+	document.getElementById('btn_4').style.visibility = "visible";
+	document.getElementById('btn_5').style.visibility = "visible";
+	document.getElementById('btn_6').style.visibility = "visible";
+	document.getElementById('btn_7').style.visibility = "visible";
+	document.getElementById('btn_8').style.visibility = "visible";
+	document.getElementById('btn_9').style.visibility = "visible";
+
+	document.getElementById('btn_10').style.visibility = "visible";
+	document.getElementById('btn_11').style.visibility = "visible";
+	document.getElementById('btn_12').style.visibility = "visible";
+	document.getElementById('btn_13').style.visibility = "visible";
+	document.getElementById('btn_14').style.visibility = "visible";
+	document.getElementById('btn_15').style.visibility = "visible";
+	document.getElementById('btn_16').style.visibility = "visible";
+	document.getElementById('btn_17').style.visibility = "visible";
+	document.getElementById('btn_18').style.visibility = "visible";
+	document.getElementById('btn_19').style.visibility = "visible";
+
+	document.getElementById('btn_20').style.visibility = "visible";
+	document.getElementById('btn_21').style.visibility = "visible";
+	document.getElementById('btn_22').style.visibility = "visible";
+	document.getElementById('btn_23').style.visibility = "visible";
+	document.getElementById('btn_24').style.visibility = "visible";
+	document.getElementById('btn_25').style.visibility = "visible";
+	document.getElementById('btn_26').style.visibility = "visible";
+	document.getElementById('btn_27').style.visibility = "visible";
+	document.getElementById('btn_28').style.visibility = "visible";
+	document.getElementById('btn_29').style.visibility = "visible";
+
+
 }
 
 function resetBoard(){
@@ -5299,6 +5333,47 @@ function attack(){
 	alreadyPressed.fill(0);
 	updateBoard(currentLevel);
 
+
+	//health calculator and enemy switching
+    if(currentPlayerHealth <= 0) {
+
+		document.getElementById('status-panel-player-health').innerHTML = "0/10 HP";
+		isPaused = 1;
+		gameOver();
+		
+    }
+	    
+    if(currentEnemyHealth <= 0) {
+		
+		currentEnemy++;
+				
+		if(currentEnemy > 5) {
+		    //restore player health to full
+		    currentPlayerHealth = 10;		    
+		    currentLevel++;
+		    currentEnemy = 1;
+		}
+				
+		if(currentLevel > 5) {
+		    //game over, you win!
+		    //do win event here
+		    document.getElementById('status-panel-enemy-health').innerHTML = "0/10 HP";
+		    gameOver();
+		}
+				
+		//reset timer
+		currentTime = 300 + ( 180 * (currentLevel - 1));
+		document.getElementById('status-panel-timer').innerHTML = (currentTime/60) + ":" + (currentTime%60);
+
+		//move to the next enemy
+		//reset enemy health
+				
+		currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
+			
+		updatePlayerHealthLabel();
+		updateEnemyHealthLabel();
+    }
+
 }
 
 function refresh(){
@@ -5310,6 +5385,10 @@ function refresh(){
 function reset() {
 	document.getElementById('text-panel-id').value = "";
 	resetBoard();
+}
+
+function gameOver(){
+
 }
 
 function pause(){
