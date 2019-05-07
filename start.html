@@ -9,17 +9,22 @@
 	
 	<div id="wrapper">
 		
-		<!-- TIMER PANEL -->
-		<div class="timer-panel">5:00</div>
+		<!-- STATUS PANEL -->
+		<div class="status-panel">
+			<div class="status-panel-player-health">10/10 HP</div>	
+			<div class="status-panel-timer">5:00</div>		
+			<div class="status-panel-enemy-health">10/10 HP</div>	
+		</div>
 
 		<!-- SCENE PANEL -->
 		<div class="scene-panel">
-			<img src="assets/ui/scene.jpg">		
+			<img src="assets/ui/scene.jpg">
+
 		</div>
 
 		<!-- TEXT PANEL -->
 		<div class="text-panel">
-			<img src="assets/ui/btn_refresh.png" id=""image1" onmousedown=diffImageDown(this) onmouseup=diffImageUp(this) />
+			<img src="assets/ui/btn_refresh.png" id=""image1" onclick="refresh()" />
 			<input type="textfield" name="text-field" id="text-panel-id" />
 		</div>
 
