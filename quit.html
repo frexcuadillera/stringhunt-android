@@ -26,17 +26,11 @@
 
 </body>
 
-<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
-<script type="text/javascript" charset="utf-8">
-   function onLoad()
-    {
-          document.addEventListener("deviceready", onDeviceReady, true);
-    }
+<iframe src="assets/sfx/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<audio id="player" autoplay loop>
+    <source src="assets/sfx/game.wav" type="audio/wav">
+</audio>
 
-    function exitFromApp()
-     {
-        navigator.app.exitApp();
-     }	
-</script>
+<!-- EXIT APP HERE -->
 
 </html>

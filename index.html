@@ -30,6 +30,7 @@
 			<a href="credits.html">
 				<img src="assets/ui/button_credits_0.png" />
 			</a>
+			
 			<a href="quit.html">
 				<img src="assets/ui/button_quit_0.png" />				
 			</a>
@@ -40,8 +41,9 @@
 
 </body>
 
-<audio autoplay loop>
-	<source src="assets/sfx/game.wav" type="audio/wav">
+<iframe src="assets/sfx/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<audio id="player" autoplay loop>
+    <source src="assets/sfx/game.wav" type="audio/wav">
 </audio>
 
 </html>
